@@ -55,7 +55,7 @@ function connect(callback){
 };
 
 exports.getAllDocuments = function(collection, docs, callback) {
-  connect(uri, function(err, db) {  
+  MongoClient.connect(uri, function(err, db) {  
   //if(err) throw err;
   //  var allDocs = db.collection(collection).find().toArray(function(err, docs) {
     var allDocs = db.collection("bothwellbot").find().toArray(docs, function(err, result){
