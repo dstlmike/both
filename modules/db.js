@@ -29,7 +29,7 @@ if(process.env.MONGODB_PASSWORD){
   process.env.MONGODB_SERVICE_PORT + '/' +
   process.env.MONGODB_DATABASE;
 }
-*/
+
 
 function connect(callback){
   mongoDB.connect(connection_string, function(err, db) {
