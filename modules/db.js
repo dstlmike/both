@@ -52,7 +52,7 @@ function connect(callback){
 
   });
   //client.close();
-});
+};
 
 exports.getAllDocuments = function(collection, docs, callback) {
   connect(function(db){
