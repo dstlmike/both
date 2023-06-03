@@ -42,15 +42,21 @@ function connect(callback){
 
 var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
-MongoClient.connect(uri, function(err, client) {  
+function connect(callback){
+  MongoClient.connect(uri, function(err, client) {  
   const collection = client.db("test").collection("devices");  
   // perform actions on the collection object  
-  client.close();
+  if(err) throw err;
+
+    callback(db);
+
+  });
+  //client.close();
 });
 
 exports.getAllDocuments = function(collection, docs, callback) {
   connect(function(db){
-    if(err) throw err;
+  /_  if(err) throw err;
   //  var allDocs = db.collection(collection).find().toArray(function(err, docs) {
     var allDocs = db.collection(collection).find().toArray(docs, function(err, result){
       if (callback)
