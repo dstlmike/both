@@ -56,7 +56,7 @@ function connect(callback){
 
 exports.getAllDocuments = function(collection, docs, callback) {
   connect(function(db){
-  /_  if(err) throw err;
+  //if(err) throw err;
   //  var allDocs = db.collection(collection).find().toArray(function(err, docs) {
     var allDocs = db.collection(collection).find().toArray(docs, function(err, result){
       if (callback)
