@@ -4,8 +4,7 @@
   "description": "A bot made for groupme",
   "main": "index.js",
   "scripts": {
-    "install": "npm install",
-    "start": "node index.js"
+    "start": "npm install && node index.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
