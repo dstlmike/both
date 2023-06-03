@@ -41,8 +41,8 @@ function connect(callback){
 var db = require('mongodb').Db;
 var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
-function connect(callback){
-  MongoClient.connect(uri, function(err, client) {  
+//function connect(callback){
+  MongoClient.connect(uri, function(err, db) {  
 //  const collection = client.db("test").collection("devices");  
   // perform actions on the collection object  
   if(err) throw err;
@@ -50,8 +50,8 @@ function connect(callback){
     callback(db);
 
   });
-  //client.close();
-};
+  db.close();
+//};
 
 exports.getAllDocuments = function(collection, docs, callback) {
   connect(function(db){
