@@ -4,7 +4,7 @@
   "description": "A bot made for groupme",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && node index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "concat": "^1.0.3",
