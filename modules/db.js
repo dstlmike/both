@@ -42,7 +42,7 @@ var db = require('mongodb').Db;
 var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:27017,cluster0-shard-00-01.esmha.mongodb.net:27017,cluster0-shard-00-02.esmha.mongodb.net:27017/?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
 //function connect(callback){
-  MongoClient.connect(uri, function(err, db) {  
+  MongoClient.connect(uri, function(err, db, callback) {  
 //  const collection = client.db("test").collection("devices");  
   // perform actions on the collection object  
   if(err) throw err;
@@ -54,7 +54,7 @@ var uri = "mongodb://alexbot:308boonave@cluster0-shard-00-00.esmha.mongodb.net:2
 //};
 
 exports.getAllDocuments = function(collection, docs, callback) {
-  MongoClient.connect(uri, function(err, db) {
+  MongoClient.connect(uri, function(err, db, callback) {
   //if(err) throw err;
   //  var allDocs = db.collection(collection).find().toArray(function(err, docs) {
     var allDocs = db.collection(collection).find().toArray(docs, function(err, result){
@@ -71,7 +71,7 @@ exports.getAllDocuments = function(collection, docs, callback) {
 //}
 
 exports.findDocs = function(collection, matchHash, callback) {
-  MongoClient.connect(uri, function(err, db) {
+  MongoClient.connect(uri, function(err, db, callback) {
     var cursor = db.collection(collection).find(matchHash);
     var ret = [];
     cursor.each(function(err, doc){
@@ -84,7 +84,7 @@ exports.findDocs = function(collection, matchHash, callback) {
 }
 
 exports.addDoc = function(collection, doc, callback) {
-  MongoClient.connect(uri, function(err, db) {
+  MongoClient.connect(uri, function(err, db,callback) {
     var ret = db.collection(collection).insert(doc, function(err, result){
       if (callback)
         callback(result);
@@ -94,7 +94,7 @@ exports.addDoc = function(collection, doc, callback) {
 }
 
 exports.updateOneDoc = function(collection, findJson, updateJson, callback) {
-  MongoClient.connect(uri, function(err, db) {
+  MongoClient.connect(uri, function(err, db, callback) {
     var ret = db.collection(collection).updateOne(findJson, updateJson, function(err, result) {
       if (callback)
         callback(result);
@@ -104,7 +104,7 @@ exports.updateOneDoc = function(collection, findJson, updateJson, callback) {
 }
 
 exports.removeOneDoc = function(collection, findJson, callback) {
-  MongoClient.connect(uri, function(err, db) {
+  MongoClient.connect(uri, function(err, db, callback) {
     var ret = db.collection(collection).deleteOne(findJson, function(err, result){
       if (callback)
         callback(result);
@@ -114,7 +114,7 @@ exports.removeOneDoc = function(collection, findJson, callback) {
 }
 
 exports.countDocs = function (collection, callback) {
-  MongoClient.connect(uri, function(err, db) {
+  MongoClient.connect(uri, function(err, db, callback) {
     var ret = db.collection(collection).count(function(err, result){
       if (callback)
         callback(result);
@@ -124,7 +124,7 @@ exports.countDocs = function (collection, callback) {
 }
 
 exports.randomDoc = function(collection, callback) {
-  MongoClient.connect(uri, function(err, db) {
+  MongoClient.connect(uri, function(err, db, callback) {
     var coll = db.collection(collection);
     cursor = coll.find({});
 
