@@ -33,7 +33,7 @@ if(process.env.MONGODB_PASSWORD){
 
 function connect(callback){
   mongoDB.connect(connection_string, function(err, db) {
-   var collection = db.db("bothwellbot").collection("hi");
+ //  var collection = db.db("bothwellbot").collection("hi");
                           if(err) throw err;
     callback(db);
   });
