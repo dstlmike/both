@@ -46,8 +46,8 @@ server = http.createServer(function (req, res) {
 port = Number(process.env.NODEJS_SERVICE_PORT || process.env.PORT || 8080);
 ip = process.env.NODEJS_SERVICE_IP || "127.0.0.1" || "0.0.0.0";
 
-server.listen(port, ip);
-
+server.listen(port);
+console.log(port+ip);
 function ping() {
   this.res.writeHead(200);
   this.res.end("I am a robot.");
