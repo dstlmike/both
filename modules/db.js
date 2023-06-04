@@ -59,7 +59,7 @@ exports.getAllDocuments = function(collection, docs, callback) {
   //if(err) throw err;
   //  var allDocs = db.collection(collection).find().toArray(function(err, docs) {
     var bothwellbot;
-    var allDocs = db.bothwellbot("bothwellbot").find().toArray(docs, function(err, result){
+    var allDocs = db.collection("bothwellbot").find().toArray(docs, function(err, result){
       if (callback)
         callback(result);
       db.close();
