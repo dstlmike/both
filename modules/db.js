@@ -40,7 +40,7 @@ function connect(callback){
 }
 */
 //var dbt = MongoClient.connect(uri, function(err, db) {;
-//var db = require('mongodb').Db;
+var db = require('mongodb').Db;
 //var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb://bothwellbot:bothwellbot@ac-sid4gyy-shard-00-00.wlwecwj.mongodb.net:27017,ac-sid4gyy-shard-00-01.wlwecwj.mongodb.net:27017,ac-sid4gyy-shard-00-02.wlwecwj.mongodb.net:27017/?ssl=true&replicaSet=atlas-h447c6-shard-0&authSource=admin&retryWrites=true&w=majority";
 function connect(callback){
