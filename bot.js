@@ -68,7 +68,7 @@ exports.commands = function() {
 
   console.log('displaying commands at /commands');
 
-  for(var lib in checkCommandsHSH){
+  for(lib in checkCommandsHSH){
     var newCmds = checkCommandsHSH[lib].getCmdListDescription();
     if (newCmds)
       cmdArr = cmdArr.concat(newCmds);
