@@ -8,7 +8,7 @@ MongoClient.connect(uri, function(err, client) {
 
   // perform actions on the collection object
 
-  client.close();
+  //client.close();
 
 });
 
