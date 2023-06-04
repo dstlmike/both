@@ -56,7 +56,7 @@ exports.respond = function(botRoom) {
   if (!rooms.getRoom(botRoom).id && botRoom != 'config')
     return;
 
-  for(var lib in checkCommandsHSH) {
+  for(lib in checkCommandsHSH) {
     checkCommandsHSH[lib].checkCommands(dataHash, function(check, result, attachments){
       if (check) sendDelayedMessage(result, attachments, rooms.getRoom(botRoom).id);
     });
