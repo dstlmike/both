@@ -39,8 +39,8 @@ function connect(callback){
 }
 */
 //var dbt = MongoClient.connect(uri, function(err, db) {;
-var db = require('mongodb').Db;
-var MongoClient = require('mongodb').MongoClient;
+//var db = require('mongodb').Db;
+//var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb://bothwellbot:bothwellbot@ac-sid4gyy-shard-00-00.wlwecwj.mongodb.net:27017,ac-sid4gyy-shard-00-01.wlwecwj.mongodb.net:27017,ac-sid4gyy-shard-00-02.wlwecwj.mongodb.net:27017/bothwellbot?ssl=true&replicaSet=atlas-h447c6-shard-0&authSource=admin&retryWrites=true&w=majority";
 function connect(callback){
   mongoDB.connect(uri, function(err, db) {  
@@ -52,16 +52,16 @@ function connect(callback){
 
   });
 //  db.close();
-};
+}
 
-exports.getAllDocuments = function(collection, docs, callback) {
+exports.getAllDocuments = function(collection, callback) {
   mongoDB.connect(uri, function(err, db) {  
-  //if(err) throw err;
-  //  var allDocs = db.collection(collection).find().toArray(function(err, docs) {
+  if(err) throw err;
+    var allDocs = db.collection(collection).find().toArray(function(err, docs) {
     var bothwellbot;
-    var allDocs = db.collection("bothwellbot").find().toArray(docs, function(err, result){
-      if (callback)
-        callback(result);
+  //  var allDocs = db.collection("bothwellbot").find().toArray(docs, function(err, result){
+     // if (callback)
+        callback(docs);
       db.close();
     });
   });
@@ -73,7 +73,7 @@ exports.getAllDocuments = function(collection, docs, callback) {
 //}
 
 exports.findDocs = function(collection, matchHash, callback) {
-  MongoClient.connect(uri, function(err, db) {  
+  connect(function(db) {  
     var cursor = db.collection(collection).find(matchHash);
     var ret = [];
     cursor.each(function(err, doc){
@@ -86,7 +86,7 @@ exports.findDocs = function(collection, matchHash, callback) {
 }
 
 exports.addDoc = function(collection, doc, callback) {
-  MongoClient.connect(uri, function(err, db) {  
+  connect(function(db) {  
     var ret = db.collection(collection).insert(doc, function(err, result){
       if (callback)
         callback(result);
@@ -96,7 +96,7 @@ exports.addDoc = function(collection, doc, callback) {
 }
 
 exports.updateOneDoc = function(collection, findJson, updateJson, callback) {
-  MongoClient.connect(uri, function(err, db) {  
+  connect(function(db) {  
     var ret = db.collection(collection).updateOne(findJson, updateJson, function(err, result) {
       if (callback)
         callback(result);
@@ -106,7 +106,7 @@ exports.updateOneDoc = function(collection, findJson, updateJson, callback) {
 }
 
 exports.removeOneDoc = function(collection, findJson, callback) {
-  MongoClient.connect(uri, function(err, db) {  
+  connect(function(db) {  
     var ret = db.collection(collection).deleteOne(findJson, function(err, result){
       if (callback)
         callback(result);
@@ -116,7 +116,7 @@ exports.removeOneDoc = function(collection, findJson, callback) {
 }
 
 exports.countDocs = function (collection, callback) {
-  MongoClient.connect(uri, function(err, db) {  
+  connect(function(db) {  
     var ret = db.collection(collection).count(function(err, result){
       if (callback)
         callback(result);
@@ -126,7 +126,7 @@ exports.countDocs = function (collection, callback) {
 }
 
 exports.randomDoc = function(collection, callback) {
-  MongoClient.connect(uri, function(err, db) {  
+  connect(function(db) {  
     var coll = db.collection(collection);
     cursor = coll.find({});
 
