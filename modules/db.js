@@ -19,7 +19,7 @@ var connection_string = 'mongodb://alexbot:308boonave@cluster0-shard-00-00-esmha
 //}
 
 //var connection_string = mongodb+srv://dstl%5Fmike1%40hotmail%2Ecom:308boonave@cluster0-esmha.mongodb.net/test?retryWrites=true&w=majority
-*/
+
 if(process.env.MONGODB_PASSWORD){
   uri = "mongodb://bothwellbot:bothwellbot@ac-sid4gyy-shard-00-00.wlwecwj.mongodb.net:27017,ac-sid4gyy-shard-00-01.wlwecwj.mongodb.net:27017,ac-sid4gyy-shard-00-02.wlwecwj.mongodb.net:27017/bothwellbot?ssl=true&replicaSet=atlas-h447c6-shard-0&authSource=admin&retryWrites=true&w=majority" + process.env.MONGODB_USER + ":" +
   // //connection_string = 'mongodb://dstl%5Fmike1%40hotmail%2Ecom:308boonave@cluster0-shard-00-00-esmha.mongodb.net:27017,cluster0-shard-00-01-esmha.mongodb.net:27017,cluster0-shard-00-02-esmha.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority' + process.env.MONGODB_USER + ":" +
