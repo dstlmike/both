@@ -4,7 +4,7 @@ var uri = "mongodb://bot:bot@ac-6ymsztq-shard-00-00.lmt2mtk.mongodb.net:27017,ac
 
 MongoClient.connect(uri, function(err, client) {
 
-  const collection = client.db("test").collection("devices");
+  var collection = client.db("test").collection("devices");
 
   // perform actions on the collection object
 
@@ -12,3 +12,4 @@ MongoClient.connect(uri, function(err, client) {
 
 });
 
+exports.mdb = MongoClient.connect(uri, function(err, client) { //mdb; // = function(collection, callback) {
