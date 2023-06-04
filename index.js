@@ -22,8 +22,7 @@ router = new director.http.Router({
     post: bot.init
   },
   '/commands' : {
-    get: bot.commands,
-    post: bot.commands
+    get: bot.commands
   },
   '/bot/:botRoom' : {
     get: ping,
@@ -45,7 +44,7 @@ server = http.createServer(function (req, res) {
 });
 
 port = Number(process.env.NODEJS_SERVICE_PORT || process.env.PORT || 8080);
-ip = process.env.NODEJS_SERVICE_IP || "0.0.0.0";
+ip = process.env.NODEJS_SERVICE_IP || "127.0.0.1" || "0.0.0.0";
 
 server.listen(port);
 
