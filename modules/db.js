@@ -58,9 +58,9 @@ function connect(callback){
 }
 
 exports.getAllDocuments = function(collection, callback) {
-  mongoDB.connect(uri, function(err, db) {  
+mdb; //  mongoDB.connect(uri, function(err, db) {  
   if(err) throw err;
-    var allDocs = db.collection(collection).find().toArray(function(err, docs) {
+    var allDocs = mdb.collection.find().toArray(function(err, docs) {
    // var bothwellbot;
   //  var allDocs = db.collection("bothwellbot").find().toArray(docs, function(err, result){
      // if (callback)
@@ -76,8 +76,8 @@ exports.getAllDocuments = function(collection, callback) {
 //}
 
 exports.findDocs = function(collection, matchHash, callback) {
-  connect(function(db) {  
-    var cursor = db.collection(collection).find(matchHash);
+  mdb; //connect(function(db) {  
+    var cursor = db.collection.find(matchHash);
     var ret = [];
     cursor.each(function(err, doc){
       if(doc != null)
