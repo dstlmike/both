@@ -67,7 +67,7 @@ mdb; //  mongoDB.connect(uri, function(err, db) {
         callback(docs);
       db.close();
     });
-  });
+//  });
 }  
     //callback(docs);
       //db.close();
