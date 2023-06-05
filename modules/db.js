@@ -1,7 +1,6 @@
 var mongoDB     = require('mongodb').MongoClient;
 
-var connection_string = 'mongodb://bot:bot@ac-6ymsztq-shard-00-00.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-01.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-02.lmt2mtk.mongodb.net:27017/?ssl=true&replicaSet=atlas-9aqeym-shard-0&authSource=admin&retryWrites=true&w=majority';
-
+var connection_string = 'mongodb://alexbot:308boonave@cluster0-shard-00-00-esmha.mongodb.net:27017,cluster0-shard-00-01-esmha.mongodb.net:27017,cluster0-shard-00-02-esmha.mongodb.net:27017/sampledb?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority';
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
 
   connection_string = 'mongodb://' + process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
