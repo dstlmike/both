@@ -45,7 +45,7 @@ function connect(callback){
 var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb://bot:bot@ac-6ymsztq-shard-00-00.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-01.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-02.lmt2mtk.mongodb.net:27017/bothwellbot?ssl=true&replicaSet=atlas-9aqeym-shard-0&authSource=admin&retryWrites=true&w=majority";
 //MongoClient.connect(uri, function(err, client) {
-function connect(callback){
+/*function connect(callback){
   mongoDB.connect("mongodb://bot:bot@ac-6ymsztq-shard-00-00.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-01.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-02.lmt2mtk.mongodb.net:27017/bothwellbot?ssl=true&replicaSet=atlas-9aqeym-shard-0&authSource=admin&retryWrites=true&w=majority", function(err, db) {  
 //  const collection = client.db("test").collection("devices");  
   // perform actions on the collection object  
@@ -56,12 +56,12 @@ function connect(callback){
   });
 //  db.close();
 }
-
+*/
 exports.getAllDocuments = function(collection, callback) {
 MongoClient.connect(uri, function(err, client) {  
  // if(err) throw err;
   //var collection = [];
-    var allDocs = client("bothwellbot").find().toArray(function(err, docs) {
+    var allDocs = client.db("bothwellbot").find().toArray(function(err, docs) {
    // var bothwellbot;
   //  var allDocs = db.collection("bothwellbot").find().toArray(docs, function(err, result){
      // if (callback)
@@ -79,7 +79,7 @@ MongoClient.connect(uri, function(err, client) {
 exports.findDocs = function(collection, matchHash, callback) {
   MongoClient.connect(uri, function(err, client) {  
    // var collection = [];
-    var cursor = client("bothwellbot").find(matchHash);
+    var cursor = client.db("bothwellbot").find(matchHash);
     var ret = [];
     cursor.each(function(err, doc){
       if(doc != null)
