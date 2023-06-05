@@ -77,7 +77,7 @@ mongoDB.connect(uri, function(err, client) {
 //}
 
 exports.findDocs = function(collection, matchHash, callback) {
-  connect(function(db) {  
+  mongoDB.connect(uri, function(err, client) {  
    // var collection = [];
     var cursor = client.db("bothwellbot").find(matchHash);
     var ret = [];
