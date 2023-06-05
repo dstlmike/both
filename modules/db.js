@@ -85,7 +85,7 @@ exports.findDocs = function(collection, matchHash, callback) {
       else
         callback(ret);
     });
-  });
+  //});
 }
 
 exports.addDoc = function(collection, doc, callback) {
