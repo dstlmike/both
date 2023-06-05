@@ -43,7 +43,7 @@ server = http.createServer(function (req, res) {
   });
 });
 
-port = Number(process.env.NODEJS_SERVICE_PORT || 27017); // process.env.PORT || 27017);
+port = Number(process.env.NODEJS_SERVICE_PORT || 8080; //27017); // process.env.PORT || 27017);
 ip = process.env.NODEJS_SERVICE_IP || "127.0.0.1"; //"0.0.0.0";
 
 server.listen(port, ip);
