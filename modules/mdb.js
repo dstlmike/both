@@ -12,4 +12,4 @@ MongoClient.connect(uri, function(err, client) {
 
 });
 
-exports.mdb = MongoClient.connect(uri, function(err, client) { //mdb; // = function(collection, callback) {
+exports.mdb; // = MongoClient.connect(uri, function(err, client) { //mdb; // = function(collection, callback) {
