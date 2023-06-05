@@ -1,5 +1,5 @@
 var mongoDB     = require('mongodb').MongoClient;
-  var collection = client.db("test").collection("devices");
+ // var collection = client.db("test").collection("devices");
 var db = require('mongodb').Db
 //
 
