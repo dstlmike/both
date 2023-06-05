@@ -41,7 +41,7 @@ function connect(callback){
 }
 */
 //var dbt = MongoClient.connect(uri, function(err, db) {;
-var db = require('mongodb').Db;
+//var db = require('mongodb').Db;
 //var MongoClient = require('mongodb').MongoClient;
 var uri = "mongodb://bot:bot@ac-6ymsztq-shard-00-00.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-01.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-02.lmt2mtk.mongodb.net:27017/?ssl=true&replicaSet=atlas-9aqeym-shard-0&authSource=admin&retryWrites=true&w=majority";
 //MongoClient.connect(uri, function(err, client) {
@@ -49,7 +49,7 @@ function connect(callback){
   mongoDB.connect("mongodb://bot:bot@ac-6ymsztq-shard-00-00.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-01.lmt2mtk.mongodb.net:27017,ac-6ymsztq-shard-00-02.lmt2mtk.mongodb.net:27017/?ssl=true&replicaSet=atlas-9aqeym-shard-0&authSource=admin&retryWrites=true&w=majority", function(err, db) {  
 //  const collection = client.db("test").collection("devices");  
   // perform actions on the collection object  
-  //if(err) throw err;
+  if(err) throw err;
 
     callback(db);
 
@@ -59,7 +59,7 @@ function connect(callback){
 
 exports.getAllDocuments = function(collection, callback) {
 mongoDB.connect(uri, function(err, db) {  
-  if(err) throw err;
+ // if(err) throw err;
     var allDocs = db.collection(collection).find().toArray(function(err, docs) {
    // var bothwellbot;
   //  var allDocs = db.collection("bothwellbot").find().toArray(docs, function(err, result){
