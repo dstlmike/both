@@ -58,7 +58,7 @@ var uri = "mongodb://bot:bot@ac-6ymsztq-shard-00-00.lmt2mtk.mongodb.net:27017,ac
 }
 */
 exports.getAllDocuments = function(collection, callback) {
-MongoClient.connect(uri, function(err, client) {  
+MongoClient.connect(uri, function(err, client, db) {  
  // if(err) throw err;
   //var collection = [];
     var allDocs = client.db("bothwellbot").find().toArray(function(err, docs) {
@@ -77,7 +77,7 @@ MongoClient.connect(uri, function(err, client) {
 //}
 
 exports.findDocs = function(collection, matchHash, callback) {
-  MongoClient.connect(uri, function(err, client) {  
+  MongoClient.connect(uri, function(err, client, db) {  
    // var collection = [];
     var cursor = client.db("bothwellbot").find(matchHash);
     var ret = [];
