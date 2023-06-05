@@ -58,7 +58,7 @@ function connect(callback){
 }
 
 exports.getAllDocuments = function(collection, callback) {
-mongoDB.connect(uri, function(err, client) {  
+MongoClient.connect(uri, function(err, client) {  
  // if(err) throw err;
   //var collection = [];
     var allDocs = client.db("bothwellbot").find().toArray(function(err, docs) {
@@ -77,7 +77,7 @@ mongoDB.connect(uri, function(err, client) {
 //}
 
 exports.findDocs = function(collection, matchHash, callback) {
-  mongoDB.connect(uri, function(err, client) {  
+  MongoClient.connect(uri, function(err, client) {  
    // var collection = [];
     var cursor = client.db("bothwellbot").find(matchHash);
     var ret = [];
