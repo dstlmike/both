@@ -36,7 +36,7 @@ exports.getAllDocuments = function(collection, callback) {
 
     if(err) throw err;
 
-    var allDocs = collection.find().toArray(function(err, docs) {
+    var allDocs = db.collection.find().toArray(function(err, docs) {
 
       callback(docs);
 
@@ -52,7 +52,7 @@ exports.findDocs = function(collection, matchHash, callback) {
 
   connect(function(db){
 
-    var cursor = collection.find(matchHash);
+    var cursor = db.collection.find(matchHash);
 
     var ret = [];
 
