@@ -65,7 +65,7 @@ mongoDB.connect(uri, function(err, db) {
   //  var allDocs = db.collection("bothwellbot").find().toArray(docs, function(err, result){
      // if (callback)
         callback(docs);
-      db.close();
+    //  db.close();
     });
  });
 }  
