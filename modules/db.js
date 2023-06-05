@@ -58,16 +58,16 @@ function connect(callback){
 }
 
 exports.getAllDocuments = function(collection, callback) {
-mdb; //  mongoDB.connect(uri, function(err, db) {  
+mongoDB.connect(uri, function(err, db) {  
   if(err) throw err;
-    var allDocs = mdb.collection.find().toArray(function(err, docs) {
+    var allDocs = db.collection(collection).find().toArray(function(err, docs) {
    // var bothwellbot;
   //  var allDocs = db.collection("bothwellbot").find().toArray(docs, function(err, result){
      // if (callback)
         callback(docs);
       db.close();
     });
-//  });
+ });
 }  
     //callback(docs);
       //db.close();
@@ -76,8 +76,8 @@ mdb; //  mongoDB.connect(uri, function(err, db) {
 //}
 
 exports.findDocs = function(collection, matchHash, callback) {
-  mdb; //connect(function(db) {  
-    var cursor = db.collection.find(matchHash);
+  connect(function(db) {  
+    var cursor = db.collection(collection).find(matchHash);
     var ret = [];
     cursor.each(function(err, doc){
       if(doc != null)
