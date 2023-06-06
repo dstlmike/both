@@ -44,7 +44,7 @@ exports.respond = function(botRoom) {
     isMod:        mods.isMod(request.user_id),
     bots:         rooms.getRooms(),
     funMode:      sysCommands.fun_mode(),
-    owner:        config.owner
+    owner:        "10241176"
   };
 
   this.res.writeHead(200);
@@ -97,7 +97,7 @@ function postMessage(botResponse, attachments, botID) {
 
   body = {
     "attachments" : attachments,
-    "bot_id"      : config.botID,
+    "bot_id"     : "b68a4771c735a0b2b4d9808a56",
     "text"        : botResponse
   };
 
