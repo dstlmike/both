@@ -1,7 +1,7 @@
 var db_table = 'config';
 var db = require('../modules/db.js');
 var env = {};
-
+var owner = "10241176";
 exports.debug = process.env.DEBUG || false;
 
 exports.env = function() {
