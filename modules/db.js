@@ -52,7 +52,7 @@ exports.findDocs = function(collection, matchHash, callback) {
 
   connect(function(db){
 
-    var cursor = db.collection.find(matchHash);
+    var cursor = db.collection(collection).find(matchHash);
 
     var ret = [];
 
